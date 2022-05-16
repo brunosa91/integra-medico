@@ -1,11 +1,11 @@
 import React from "react";
 import * as S from "./Input.js";
 
-function Input() {
+function Input({ name }) {
   return (
     <S.Div>
       <S.Input />
-      <S.Label>test</S.Label>
+      <S.Label>{name}</S.Label>
     </S.Div>
   );
 }
