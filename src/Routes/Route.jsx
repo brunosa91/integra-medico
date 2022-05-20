@@ -16,7 +16,7 @@ function Routes() {
         <Route path="/" element={<Home />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/catalogo" element={<Catalogo />} />
-        <Route path="/editar" element={<Editar />} />
+        <Route path="/editar/:id" element={<Editar />} />
       </Switch>
     </BrowserRouter>
   );

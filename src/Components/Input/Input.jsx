@@ -1,10 +1,19 @@
 import React from "react";
 import * as S from "./Input.js";
 
-function Input({ name, register, onchange }) {
+function Input({ name, register, onChange, type, value }) {
   return (
     <S.Div>
-      <S.Input register={register} onChange={onchange} />
+      <S.Input
+        name={name}
+        register={register}
+        onChange={onChange}
+        required
+        // id={id}
+        {...register}
+        type={type}
+        value={value}
+      />
       <S.Label>{name}</S.Label>
     </S.Div>
   );
