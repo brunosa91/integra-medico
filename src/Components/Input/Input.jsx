@@ -1,10 +1,10 @@
 import React from "react";
 import * as S from "./Input.js";
 
-function Input({ name }) {
+function Input({ name, register, onchange }) {
   return (
     <S.Div>
-      <S.Input />
+      <S.Input register={register} onChange={onchange} />
       <S.Label>{name}</S.Label>
     </S.Div>
   );
