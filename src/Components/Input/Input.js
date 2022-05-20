@@ -23,6 +23,6 @@ export const Input = styled.input`
 `;
 export const Label = styled.label`
   color: black;
-  font-size: 18px;
+  font-size: 15px;
   text-align: center;
 `;

@@ -16,9 +16,10 @@ export const Main = styled.main`
     display: flex;
     justify-content: center;
   }
-  .container {
-    height: 30px;
+  .select {
+    height: 40px;
     width: 120px;
+    font-size: 18px;
     margin-top: 30px;
     margin-right: 15px;
   }
@@ -29,8 +30,8 @@ export const Grid = styled.div`
   width: 85%;
   min-height: 150vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 3%;
   margin-top: 7%;
 `;

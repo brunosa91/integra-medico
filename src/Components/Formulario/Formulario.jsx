@@ -3,7 +3,7 @@ import * as S from "./Formulario.js";
 import Input from "../../Components/Input/Input.jsx";
 import { useState } from "react";
 import { Api } from "../../Services/Api.js";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Button } from "../Button/button.js";
 
@@ -11,7 +11,7 @@ function Formulario() {
   const [dados, setDados] = useState({});
   const { register, handleSubmit } = useForm();
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   function handleOnChange(e) {
     setDados({ ...dados, [e.target.name]: e.target.value });
   }
@@ -19,7 +19,7 @@ function Formulario() {
   const api = (data) => {
     Api.post("", data)
       .then((response) => {
-        console.log(response);
+        navigate("/catalogo");
       })
       .catch((erro) => console.log(erro));
   };
@@ -103,7 +103,7 @@ function Formulario() {
         register={{ ...register("especialidade", { required: true }) }}
         onChange={handleOnChange}
       />
-      <Button nome="enviar" />
+      <Button>ENVIAR</Button>
     </S.Form>
   );
 }

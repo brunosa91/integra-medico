@@ -22,7 +22,7 @@ function Catalogo() {
     <S.Main>
       <div className="Div">
         <select
-          className="container"
+          className="select"
           id=""
           onChange={(e) => setSelect(e.target.value)}
         >

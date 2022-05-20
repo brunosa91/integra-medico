@@ -3,12 +3,11 @@ import * as S from "./formularioEditar.js";
 import Input from "../../Components/Input/Input.jsx";
 import { useState } from "react";
 import { Api } from "../../Services/Api.js";
-// import { useNavigate } from "react-router-dom";
-
-import { Button } from "../Button/button.js";
+import { useNavigate } from "react-router-dom";
 
 function FormularioEditar({ id }) {
   const [dados, setDados] = useState({});
+  const navigate = useNavigate();
   useEffect(() => {
     Api.get("/" + id)
       .then((response) => {
@@ -23,7 +22,7 @@ function FormularioEditar({ id }) {
     console.log(dados);
     Api.put("", dados)
       .then((response) => {
-        console.log(response);
+        navigate("/catalogo");
       })
 
       .catch((err) => console.log(err));
@@ -33,7 +32,7 @@ function FormularioEditar({ id }) {
     e.preventDefault();
     Api.delete("" + id, dados)
       .then((response) => {
-        console.log(response);
+        navigate("/catalogo");
       })
       .catch((err) => console.log(err));
   }
@@ -109,8 +108,14 @@ function FormularioEditar({ id }) {
         onChange={handleOnChange}
         value={dados.especialidade}
       />
-      <button onClick={handleUpdate}>EDITAR</button>
-      <button onClick={handleDelete}>DELETAR</button>
+      <div>
+        <button className="btn" onClick={handleUpdate}>
+          EDITAR
+        </button>
+        <button className="btn" onClick={handleDelete}>
+          DELETAR
+        </button>
+      </div>
     </S.Form>
   );
 }

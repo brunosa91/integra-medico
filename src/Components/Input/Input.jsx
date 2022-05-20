@@ -14,7 +14,7 @@ function Input({ name, register, onChange, type, value }) {
         type={type}
         value={value}
       />
-      <S.Label>{name}</S.Label>
+      <S.Label>{name.toUpperCase()}</S.Label>
     </S.Div>
   );
 }

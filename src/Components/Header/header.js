@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 
 import { variable } from "../../Style/GlobalStyle.js";
 
@@ -30,11 +29,8 @@ export const Nav = styled.nav`
 `;
 
 export const img = styled.img`
-  height: 50px;
-  width: 50px;
-
-  height: ${(props) => (props.primary ? "500px" : "50px")};
-  width: ${(props) => (props.primary ? "500px" : "50px")};
+  height: 75px;
+  width: 75px;
 `;
 
 export const link = styled.a`
