@@ -1,8 +1,8 @@
 import React from "react";
 import * as S from "./InputBusca.js";
 
-function InputBusca() {
-  return <S.InputBusca />;
+function InputBusca({ onChange }) {
+  return <S.InputBusca onChange={onChange} />;
 }
 
 export default InputBusca;
