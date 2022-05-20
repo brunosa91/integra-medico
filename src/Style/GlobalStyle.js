@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const colors = {
+export const variable = {
   name: "colors",
   background: "#EFFDF1",
   backgroundDegrade: "#B6D9BA",
@@ -10,6 +10,7 @@ export const colors = {
   textButton: "#FFFFFF",
   text: "#000000",
   header: "#93C398",
+  textStyle: "sans-serif",
 };
 
 export const GlobalStyle = createGlobalStyle`
