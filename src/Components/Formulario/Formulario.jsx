@@ -2,19 +2,31 @@ import React from "react";
 import * as S from "./Formulario.js";
 import Input from "../../Components/Input/Input.jsx";
 import { useState } from "react";
-import { Api } from "../../Services/Api.js";
+import { Api, ApiCep } from "../../Services/Api.js";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Button } from "../Button/button.js";
 
 function Formulario() {
   const [dados, setDados] = useState({});
-  const { register, handleSubmit } = useForm();
+
+  const { register, handleSubmit, setValue } = useForm();
 
   const navigate = useNavigate();
   function handleOnChange(e) {
     setDados({ ...dados, [e.target.name]: e.target.value });
   }
+
+  const setCep = (e) => {
+    const cep = e.target.value.replace(/\D/g, "");
+    fetch(`https://viacep.com.br/ws/${cep}/json`)
+      .then((res) => res.json())
+      .then((data) => {
+        setValue("logradouro", data.logradouro);
+        setValue("cidade", data.localidade);
+        setValue("estado", data.uf);
+      });
+  };
 
   const api = (data) => {
     Api.post("", data)
@@ -60,6 +72,7 @@ function Formulario() {
         type="text"
         register={{ ...register("cep", { required: true }) }}
         onChange={handleOnChange}
+        onBlur={setCep}
       />
       <Input
         name="logradouro"
