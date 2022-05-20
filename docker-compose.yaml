@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  web:
+    build: "./"
+    container_name: "react-container"
+    volumes:
+      - ./:/home/node/web
+      - /home/node/web/node_modules
+    ports:
+      - 3000:3000
