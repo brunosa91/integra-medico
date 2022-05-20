@@ -1,14 +1,14 @@
 import React from "react";
 import * as S from "./home.js";
 
-import * as H from "../../Components/Header/header.js";
 import { Button } from "../../Components/Button/button.js";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
     <S.Main>
       <S.Section>
-        <H.img primary src="Assets/img/img-home.png" />
+        <img src="Assets/img/img-home.png" alt="mão segurando máscara" />
       </S.Section>
       <S.Section>
         <p>
@@ -20,7 +20,7 @@ function Home() {
           onde é possível tanto atualizar os dados do profissional como deletar
           dos sistema.
         </p>
-        <Button>CADASTRE-SE</Button>
+        <Link to={"/cadastro"}>CADASTRE-SE</Link>
       </S.Section>
     </S.Main>
   );

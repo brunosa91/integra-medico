@@ -10,7 +10,7 @@ export const variable = {
   textButton: "#FFFFFF",
   text: "#000000",
   header: "#93C398",
-  textStyle: "sans-serif",
+  textStyle: "'Montserrat', sans-serif",
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -23,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
 html,body{
     width: 100%;
     min-height: 100vh;
+    font-family: ${variable.textStyle};
   }
 
 

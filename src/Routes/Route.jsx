@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes as Switch, Route } from "react-router-dom";
 import Home from "../Pages/Home/Home.jsx";
 import Cadastro from "../Pages/Cadastro/Cadastro.jsx";
-import Catalogo from "../Pages/Catalogo/Catalago.jsx";
+import Catalogo from "../Pages/Catalogo/Catalogo.jsx";
 import Editar from "../Pages/Editar/Editar.jsx";
 
 import Header from "../Components/Header/Header.jsx";
