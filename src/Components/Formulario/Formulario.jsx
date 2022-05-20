@@ -8,22 +8,14 @@ import { useForm } from "react-hook-form";
 import { Button } from "../Button/button.js";
 
 function Formulario() {
-  const [dados, setDados] = useState({
-    nome: "",
-    crm: "",
-    telefone: "",
-    celular: "",
-    cep: "",
-    logradouro: "",
-    numero: "",
-    complemento: "",
-    cidade: "",
-    estado: "",
-    especialidade: "",
-  });
+  const [dados, setDados] = useState({});
   const { register, handleSubmit } = useForm();
 
   // const navigate = useNavigate();
+  function handleOnChange(e) {
+    setDados({ ...dados, [e.target.name]: e.target.value });
+  }
+
   const api = (data) => {
     Api.post("", data)
       .then((response) => {
@@ -32,68 +24,86 @@ function Formulario() {
       .catch((erro) => console.log(erro));
   };
 
-  function handleOnChange(e) {
-    setDados({ ...dados, [e.target.name]: e.target.value });
-  }
-
   return (
     <S.Form onSubmit={handleSubmit(api)}>
       <Input
-        name="NOME"
+        name="nome"
+        id="nome"
+        type="text"
         register={{ ...register("nome", { required: true }) }}
         onChange={handleOnChange}
       />
       <Input
-        name="CRM"
+        name="crm"
+        id="crm"
+        type="text"
         register={{ ...register("crm", { required: true }) }}
         onChange={handleOnChange}
       />
       <Input
-        name="TELEFONE"
+        name="telefone"
+        id="telefone"
+        type="text"
         register={{ ...register("telefone", { required: true }) }}
         onChange={handleOnChange}
       />
       <Input
-        name="CELULAR"
+        name="celular"
+        id="celular"
+        type="text"
         register={{ ...register("celular", { required: true }) }}
         onChange={handleOnChange}
       />
       <Input
-        name="CEP"
+        name="cep"
+        id="cep"
+        type="text"
         register={{ ...register("cep", { required: true }) }}
         onChange={handleOnChange}
       />
       <Input
-        name="LOGRADOURO"
+        name="logradouro"
+        id="logradouro"
+        type="text"
         register={{ ...register("logradouro", { required: true }) }}
         onChange={handleOnChange}
       />
       <Input
-        name="NÚMERO"
+        name="numero"
+        id="numero"
+        type="text"
         register={{ ...register("numero", { required: true }) }}
         onChange={handleOnChange}
       />
       <Input
-        name="COMPLEMENTO"
+        name="complemento"
+        id="complemento"
+        type="text"
         register={{ ...register("complemento", { required: true }) }}
         onChange={handleOnChange}
       />
       <Input
-        name="CIDADE"
+        name="cidade"
+        id="cidade"
+        type="text"
         register={{ ...register("cidade", { required: true }) }}
         onChange={handleOnChange}
       />
       <Input
-        name="ESTADO"
+        name="estado"
+        id="estado"
+        type="text"
         register={{ ...register("estado", { required: true }) }}
         onChange={handleOnChange}
       />
       <Input
-        name="ESPECIALIDADE"
+        name="especialidade"
+        id="especialidade"
+        type="text"
         register={{ ...register("especialidade", { required: true }) }}
         onChange={handleOnChange}
       />
-      <Button>ENVIAR</Button>
+      <Button nome="enviar" />
     </S.Form>
   );
 }
