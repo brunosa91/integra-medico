@@ -17,4 +17,10 @@ export const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  > p {
+    font-size: 20px;
+    text-align: center;
+    padding: 100px;
+    font-family: ${variable.textStyle};
+  }
 `;
