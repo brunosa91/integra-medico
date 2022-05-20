@@ -109,13 +109,99 @@ function Formulario() {
         register={{ ...register("estado", { required: true }) }}
         onChange={handleOnChange}
       />
-      <Input
+
+      {/* <Input
         name="especialidade"
         id="especialidade"
         type="text"
         register={{ ...register("especialidade", { required: true }) }}
         onChange={handleOnChange}
-      />
+      /> */}
+      <fieldset>
+        <legend>Escolha sua especialidade:</legend>
+        <div>
+          <input
+            type="radio"
+            id="angeologia"
+            value="angeologia"
+            {...register("especialidade", { required: true })}
+          />
+          <label htmlFor="angeologia">Angeologia</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="cardiologiaInfantil"
+            value="cardiologiaInfantil"
+            {...register("especialidade", { required: true })}
+          />
+          <label htmlFor="cardiologiaInfantil">Cardiologia Infantil</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="Alergologia"
+            value="Alergologia"
+            {...register("especialidade", { required: true })}
+          />
+          <label htmlFor="Alergologia">Alergologia</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="BucoMaxilo"
+            value="BucoMaxilo"
+            {...register("especialidade", { required: true })}
+          />
+          <label htmlFor="BucoMaxilo">Buco Maxilo</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="Cardiologiaclinica"
+            value="Cardiologiaclinica"
+            {...register("especialidade", { required: true })}
+          />
+          <label htmlFor="Cardiologiaclinica">Cardiologia Clínica</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="CirurgiaCabeçaePescoco"
+            value="CirurgiaCabeçaePescoco"
+            {...register("especialidade", { required: true })}
+          />
+          <label htmlFor="CirurgiaCabeçaePescoco">
+            Cirurgia cabeça e pescoço
+          </label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="CirurgiaCardiaca"
+            value="CirurgiaCardiaca"
+            {...register("especialidade", { required: true })}
+          />
+          <label htmlFor="CirurgiaCardiaca">Cirurgia cardíaca</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="CirurgiaDeTorax"
+            value="CirurgiaDeTorax"
+            {...register("especialidade", { required: true })}
+          />
+          <label htmlFor="CirurgiaDeTorax">Cirurgia de tórax</label>
+        </div>
+      </fieldset>
+
       <Button>ENVIAR</Button>
     </S.Form>
   );

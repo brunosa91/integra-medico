@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { variable } from "../../Style/GlobalStyle.js";
 
 export const Form = styled.form`
   display: flex;
@@ -9,4 +8,19 @@ export const Form = styled.form`
   justify-content: center;
   gap: 3px;
   margin: 15px;
+  > fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    margin-top: 20px;
+    legend {
+      text-transform: uppercase;
+    }
+    label {
+      margin-left: 10px;
+    }
+    div {
+      margin-top: 10px;
+    }
+  }
 `;
