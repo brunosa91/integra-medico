@@ -2,15 +2,36 @@ import React from "react";
 import * as S from "./Formulario.js";
 import Input from "../../Components/Input/Input.jsx";
 import { useState } from "react";
-import { Api, ApiCep } from "../../Services/Api.js";
+import { Api } from "../../Services/Api.js";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Button } from "../Button/button.js";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const validationPost = yup.object().shape({
+  nome: yup
+    .string()
+    .required("Nome é obrigatório")
+    .max(120, "O nome precisa ter no máximo 120 caracteres"),
+  crm: yup
+    .number()
+    .required("CRM é obrigatório")
+    .max(7, "O CRM precisa ter no máximo 7 caracteres"),
+  telefone: yup.number().required("O telefone é obrigatório"),
+  celular: yup.number().required("O celular é obrigatório"),
+  cep: yup.number().required("O CEP é obrigatório"),
+});
 
 function Formulario() {
   const [dados, setDados] = useState({});
 
-  const { register, handleSubmit, setValue } = useForm();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(validationPost) });
 
   const navigate = useNavigate();
   function handleOnChange(e) {
@@ -42,37 +63,42 @@ function Formulario() {
         name="nome"
         id="nome"
         type="text"
-        register={{ ...register("nome", { required: true }) }}
+        register={{ ...register("nome") }}
         onChange={handleOnChange}
+        erro={errors.nome?.message}
       />
       <Input
         name="crm"
         id="crm"
         type="text"
-        register={{ ...register("crm", { required: true }) }}
+        register={{ ...register("crm") }}
         onChange={handleOnChange}
+        erro={errors.crm?.message}
       />
       <Input
         name="telefone"
         id="telefone"
         type="text"
-        register={{ ...register("telefone", { required: true }) }}
+        register={{ ...register("telefone") }}
         onChange={handleOnChange}
+        erro={errors.telefone?.message}
       />
       <Input
         name="celular"
         id="celular"
         type="text"
-        register={{ ...register("celular", { required: true }) }}
+        register={{ ...register("celular") }}
         onChange={handleOnChange}
+        erro={errors.celular?.message}
       />
       <Input
         name="cep"
         id="cep"
         type="text"
-        register={{ ...register("cep", { required: true }) }}
+        register={{ ...register("cep") }}
         onChange={handleOnChange}
         onBlur={setCep}
+        erro={errors.cep?.message}
       />
       <Input
         name="logradouro"
@@ -110,13 +136,6 @@ function Formulario() {
         onChange={handleOnChange}
       />
 
-      {/* <Input
-        name="especialidade"
-        id="especialidade"
-        type="text"
-        register={{ ...register("especialidade", { required: true }) }}
-        onChange={handleOnChange}
-      /> */}
       <fieldset>
         <legend>Escolha sua especialidade:</legend>
         <div>

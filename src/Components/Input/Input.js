@@ -8,6 +8,11 @@ export const Div = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
+  > p {
+    font-size: 12px;
+    color: red;
+    width: 300px;
+  }
 `;
 
 export const Input = styled.input`

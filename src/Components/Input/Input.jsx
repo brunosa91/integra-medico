@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./Input.js";
 
-function Input({ name, register, onChange, type, value, onBlur }) {
+function Input({ name, register, onChange, type, value, onBlur, erro }) {
   return (
     <S.Div>
       <S.Input
@@ -16,6 +16,7 @@ function Input({ name, register, onChange, type, value, onBlur }) {
         onBlur={onBlur}
       />
       <S.Label>{name.toUpperCase()}</S.Label>
+      <p>{erro}</p>
     </S.Div>
   );
 }
